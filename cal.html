@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Accretive-Calander</title>
+    <style>
+        #smallcal,
+        #addbuttons {
+            box-shadow: 0 0 10px 0 grey;
+            height: 300px;
+            width: 250px;
+            margin: 10px;
+            padding: 5px;
+        }
+
+        .line {
+            background-color: grey;
+            width: 2px;
+            height: 100%;
+            position: absolute;
+            left: 23%;
+            top: 0;
+        }
+
+        #rows {
+            display: inline;
+            padding: 2px;
+        }
+
+        #rows .col {
+            margin-top: -15px;
+        }
+
+        #rows .col button {
+            background-color: white;
+            border: 0px;
+        }
+
+        #daysname {
+            font-size: 10px;
+        }
+
+        #rightcal {
+            position: absolute;
+            top: 5px;
+            left: 24%;
+            width: 75%;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px 0 grey;
+        }
+
+        #weekdays,
+        #week1,
+        #week2,
+        #week3,
+        #week4 {
+            justify-content: space-around;
+            display: flex;
+        }
+
+        #week5 {
+            display: flex;
+        }
+
+        #week5 .row {
+            margin-left: 20px;
+        }
+
+        .col .row {
+            padding: 5px;
+            height: 70px;
+            width: 100px;
+            border-radius: 3px;
+            box-shadow: 0 0 8px 0 grey;
+        }
+
+        .numbtn {
+            background-color: white;
+            border: 0px;
+            padding: 0;
+        }
+
+        #addbuttons {
+            box-shadow: 0 0 10px 0 grey;
+            height: 220px;
+            width: 250px;
+            margin: 10px;
+            padding: 5px;
+        }
+
+        mark {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card" id="smallcal">
+        <center>
+            <p style="background-color: black; color:white;"><b>Calender</b></p>
+        </center>
+        <center>
+            <hr style="background-color: black; width: 200px; margin-top: -10px;">
+        </center>
+        <center>
+            <p><mark id="date"></mark></p>
+        </center>
+        <br>
+
+        <div class="row" id="rows">
+
+            <div class="col" id="daysname">
+                <button type="button disabled" id="sun">SUN</button>
+                <button type="button disabled" id="mon">MON</button>
+                <button type="button disabled" id="tue">TUE</button>
+                <button type="button disabled" id="wed">WED</button>
+                <button type="button disabled" id="thu">THU</button>
+                <button type="button disabled" id="fri">FRI</button>
+                <button type="button disabled" id="sat">SAT</button>
+            </div>
+            <br>
+            <div class="col">
+                <button type="submit" id="001">01</button>
+                <button type="submit" id="002">02</button>
+                <button type="submit" id="003">03</button>
+                <button type="submit" id="004">04</button>
+                <button type="submit" id="005">05</button>
+                <button type="submit" id="006">06</button>
+                <button type="submit" id="007">07</button>
+            </div>
+            <br>
+            <div class="col">
+                <button type="submit" id="008">08</button>
+                <button type="submit" id="009">09</button>
+                <button type="submit" id="010">10</button>
+                <button type="submit" id="011">11</button>
+                <button type="submit" id="012">12</button>
+                <button type="submit" id="013">13</button>
+                <button type="submit" id="014">14</button>
+            </div>
+            <br>
+            <div class="col">
+                <button type="submit" id="015">15</button>
+                <button type="submit" id="016">16</button>
+                <button type="submit" id="017">17</button>
+                <button type="submit" id="018">18</button>
+                <button type="submit" id="019">19</button>
+                <button type="submit" id="020">20</button>
+                <button type="submit" id="021">21</button>
+            </div>
+            <br>
+            <div class="col">
+                <button type="submit" id="022">22</button>
+                <button type="submit" id="023">23</button>
+                <button type="submit" id="024">24</button>
+                <button type="submit" id="025">25</button>
+                <button type="submit" id="026">26</button>
+                <button type="submit" id="027">27</button>
+                <button type="submit" id="028">28</button>
+            </div>
+            <br>
+            <div class="col">
+                <button type="submit" id="029">29</button>
+                <button type="submit" id="030">30</button>
+                <button type="submit" id="031">31</button>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="card" id="addbuttons">
+        <div class="col-sm">
+            <h4 style="background-color: black;color:white;">TODAYS SUMMARY</h4>
+
+        </div>
+    </div>
+
+
+    <div class="line"></div>
+
+
+    <!--  right cal -->
+
+    <div class="container-sm" id="rightcal">
+        <center>
+            <h3 style="background-color: black; color:white;"><b>Calender</b></h3>
+        </center>
+        <center>
+            <hr style="background-color: black; width: 200px; margin-top: -10px;">
+        </center>
+        <center>
+            <p><mark id="date2"></mark>
+                <input type="date" id="start" placeholder="Select">
+            </p>
+
+        </center>
+
+
+        <div class="col" id="weekdays" style="margin-top: -10px;">
+            <div class="row2" id="zero">SUNDAY</div>
+            <div class="row2" id="one">MONDAY</div>
+            <div class="row2" id="two">TUESDAY</div>
+            <div class="row2" id="three">WEDNESDAY</div>
+            <div class="row2" id="four">THURSDAY</div>
+            <div class="row2" id="five">FRIDAY</div>
+            <div class="row2" id="six">SATURDAY</div>
+        </div>
+        <br>
+        <div class="col" id="week1">
+            <div class="row" id="1">01
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+
+            <div class="row" id="2">02
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="3">03
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="4">04
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="5">05
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="6">06
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="7">07
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <br>
+        <div class="col" id="week2">
+            <div class="row" id="8">08
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="9">09
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="10">10
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="11">11
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="12">12
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="13">13
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="14">14
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <br>
+        <div class="col" id="week3">
+            <div class="row" id="15">15
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="16">16
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="17">17
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="18">18
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="19">19
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="20">20
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="21">21
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <br>
+        <div class="col" id="week4">
+            <div class="row" id="22">22
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="23">23
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="24">24
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="25">25
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="26">26
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="27">27
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="28">28
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <br>
+        <div class="col" id="week5">
+            <div class="row" id="29">29
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="30" style="margin-left: 51px;">30
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+            <div class="row" id="31" style="margin-left: 55px;">31
+                &ensp;<center><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="numbtn"><i class="fas fa-plus-circle" style="color:green;"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Add Meeting</a>
+                        <a class="dropdown-item" href="#">Add Reminder</a>
+                        <a class="dropdown-item" href="#">Add Task</a>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+
+        $(document).ready(function () {
+            /*
+                        $("#1").before( "<div class='row' style='height:70px;width:100px;background-color:red;'>Test</div>" );
+            */
+            var d = new Date();
+            var n = d.getMonth();
+            var y = d.getUTCFullYear();
+            var dd = String(d.getDate()).padStart(2, '0');
+            var firstday = new Date(y, n, 1).getDay();
+            
+            var days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+            var days2 = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+            func1(firstday)
+            datechange(dd, n, y)
+            changemnth(n,y)
+
+
+
+            $("#start").change(function () {
+                var str = $("#start").val();
+                var res = str.split('-');
+                date = res[2];
+                month = res[1];
+                monthx=month-1;
+                year = res[0];
+                datechange(date, month, year)
+                changemnth(monthx,res[0])
+                var fd = new Date(year, month, 1).getDay();
+                func1(fd)
+            });
+
+
+            function datechange(a, b, c) {
+                $("#date, #date2").html(a + "-" + b + "-" + c);
+                $("#"+a).css("box-shadow", "0 0 15px 0 orangered");
+                $("#0"+a).css("box-shadow", "0 0 5px 0 orangered");
+                //new Date().toLocaleDateString()
+            }
+
+            function changemnth(aa, bb) {
+                if (aa == 1) {
+                    if ((0 == bb % 4) && (0 != bb % 100) || (0 == bb % 400)) {
+                        $("#30, #31, #030, #031").css("display", "none");
+                    }
+                    else {
+                        $("#29, #30, #31, #029, #030, #031").css("display", "none");
+                    }
+                }
+                else if (aa == 3 || aa == 5 || aa == 8 || aa == 10) {
+                    $("#31, #031").css("display", "none");
+                }
+                else if (aa == 0 || aa == 2 || aa == 4 || aa == 6 || aa == 7 || aa == 9 || aa == 11) {
+                    $("#30, #030, #31, #031").css("display", "inline");
+                }
+                else {
+                    // do nothing
+                }
+            }
+
+
+
+            
+            function func1(aaa) {
+                //checking and replacing days name
+                if (aaa == 1) {
+                    $("#zero").html(days[1]);
+                    $("#one").html(days[2]);
+                    $("#two").html(days[3]);
+                    $("#three").html(days[4]);
+                    $("#four").html(days[5]);
+                    $("#five").html(days[6]);
+                    $("#six").html(days[0]);
+
+                    $("#sun").html(days2[1]);
+                    $("#mon").html(days2[2]);
+                    $("#tue").html(days2[3]);
+                    $("#wed").html(days2[4]);
+                    $("#thu").html(days2[5]);
+                    $("#fri").html(days2[6]);
+                    $("#sat").html(days2[0]);
+                }
+                else if (aaa == 2) {
+                    $("#zero").html(days[2]);
+                    $("#one").html(days[3]);
+                    $("#two").html(days[4]);
+                    $("#three").html(days[5]);
+                    $("#four").html(days[6]);
+                    $("#five").html(days[0]);
+                    $("#six").html(days[1]);
+
+                    $("#sun").html(days2[2]);
+                    $("#mon").html(days2[3]);
+                    $("#tue").html(days2[4]);
+                    $("#wed").html(days2[5]);
+                    $("#thu").html(days2[6]);
+                    $("#fri").html(days2[0]);
+                    $("#sat").html(days2[1]);
+                }
+                else if (aaa == 3) {
+                    $("#zero").html(days[3]);
+                    $("#one").html(days[4]);
+                    $("#two").html(days[5]);
+                    $("#three").html(days[6]);
+                    $("#four").html(days[0]);
+                    $("#five").html(days[1]);
+                    $("#six").html(days[2]);
+
+                    $("#sun").html(days2[3]);
+                    $("#mon").html(days2[4]);
+                    $("#tue").html(days2[5]);
+                    $("#wed").html(days2[6]);
+                    $("#thu").html(days2[0]);
+                    $("#fri").html(days2[1]);
+                    $("#sat").html(days2[2]);
+                }
+                else if (aaa == 4) {
+                    ;
+                    $("#zero").html(days[4]);
+                    $("#one").html(days[5]);
+                    $("#two").html(days[6]);
+                    $("#three").html(days[0]);
+                    $("#four").html(days[1]);
+                    $("#five").html(days[2]);
+                    $("#six").html(days[3]);
+
+                    $("#sun").html(days2[4]);
+                    $("#mon").html(days2[5]);
+                    $("#tue").html(days2[6]);
+                    $("#wed").html(days2[0]);
+                    $("#thu").html(days2[1]);
+                    $("#fri").html(days2[2]);
+                    $("#sat").html(days2[3]);
+                }
+                else if (aaa == 5) {
+                    ;
+                    $("#zero").html(days[5]);
+                    $("#one").html(days[6]);
+                    $("#two").html(days[0]);
+                    $("#three").html(days[1]);
+                    $("#four").html(days[2]);
+                    $("#five").html(days[3]);
+                    $("#six").html(days[4]);
+
+                    $("#sun").html(days2[5]);
+                    $("#mon").html(days2[6]);
+                    $("#tue").html(days2[0]);
+                    $("#wed").html(days2[1]);
+                    $("#thu").html(days2[2]);
+                    $("#fri").html(days2[3]);
+                    $("#sat").html(days2[4]);
+                }
+                else if (aaa == 6) {
+                    ;
+                    $("#zero").html(days[6]);
+                    $("#one").html(days[0]);
+                    $("#two").html(days[1]);
+                    $("#three").html(days[2]);
+                    $("#four").html(days[3]);
+                    $("#five").html(days[4]);
+                    $("#six").html(days[5]);
+
+                    $("#sun").html(days2[6]);
+                    $("#mon").html(days2[0]);
+                    $("#tue").html(days2[1]);
+                    $("#wed").html(days2[2]);
+                    $("#thu").html(days2[3]);
+                    $("#fri").html(days2[4]);
+                    $("#sat").html(days2[5]);
+                }
+                else {
+                    //do nothing;
+                }
+            }
+
+
+
+
+
+
+        });
+
+    </script>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
+
+</body>
+
+</html>
