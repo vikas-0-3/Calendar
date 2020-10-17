@@ -17,8 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Accretive-Calander</title>
     <style>
-        #smallcal,
-        #addbuttons {
+        #smallcal {
             box-shadow: 0 0 10px 0 grey;
             height: 300px;
             width: 250px;
@@ -595,8 +594,18 @@
 
             function datechange(a, b, c) {
                 $("#date, #date2").html(a + "-" + b + "-" + c);
-                $("#"+a).css("box-shadow", "0 0 15px 0 orangered");
+                $("#rows .col button").css("box-shadow","");
                 $("#0"+a).css("box-shadow", "0 0 5px 0 orangered");
+
+                if(a < 10) {
+                    var trash = a.replace('0', '');
+                    $("#week1 .row, #week2 .row, #week3 .row, #week4 .row, #week5 .row").css("box-shadow", "0 0 15px 0 grey");
+                    $("#"+trash).css("box-shadow", "0 0 15px 0 orangered");
+                }
+                else {
+                    $("#week1 .row, #week2 .row, #week3 .row, #week4 .row, #week5 .row").css("box-shadow", "0 0 15px 0 grey");
+                    $("#"+a).css("box-shadow", "0 0 15px 0 orangered");
+                }
                 //new Date().toLocaleDateString()
             }
 
